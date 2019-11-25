@@ -17,7 +17,7 @@
       </div>
       <div class="body" @click="$router.push('/step/edit')">
         <div v-for="(child,index) in item.children" :key="index" class="step">
-          <van-checkbox :value="child.done" checked-color="#2176ff" @click="changeStepStatus(item,child)" />
+          <van-checkbox :value="child.done" checked-color="#2176ff" @click.stop="changeStepStatus(item,child)" />
           <div>
             <div class="title">
               {{ index+1 }}.{{ child.title }}
@@ -54,7 +54,11 @@ export default {
   },
   methods: {
     changeStepStatus (task, step) {
-
+      this.$store.dispatch({
+        type: 'transaction/switchStepStatus',
+        task,
+        step
+      })
     }
   }
 }

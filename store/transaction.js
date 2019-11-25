@@ -48,14 +48,15 @@ export const state = () => ({
 })
 
 export const mutations = {
-  // set (state, user) {
-  //   sessionStorage.setItem('user', JSON.stringify(user))
-  //   state.user = user
-  // }
+  set (state, user) {
+    state.today[0].children[0].done = !state.today[0].children[0].done
+  }
 }
 
 export const actions = {
-  switchStepStatus (state, info) {
-
+  switchStepStatus ({ commit, state }, task, step) {
+    console.log(task, step)
+    // state.today[0].children[0].done = !state.today[0].children[0].done
+    commit('set')
   }
 }
