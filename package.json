@@ -1,0 +1,49 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "五项管理",
+  "author": "septem1997",
+  "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,vue}": [
+      "prettier-eslint --write",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "dev": "cross-env MY_ENV=test nuxt",
+    "build": "cross-env MY_ENV=production nuxt build",
+    "buildDev": "cross-env MY_ENV=test nuxt build && set",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "pre-commit": "lint-staged"
+   },
+  "dependencies": {
+    "cross-env": "^6.0.3",
+    "nuxt": "^2.0.0",
+    "vant": "^2.2.14",
+    "@nuxtjs/axios": "^5.3.6"
+  },
+  "devDependencies": {
+    "vux-loader": "^1.2.9",
+    "@nuxtjs/eslint-config": "^1.0.1",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.1.0",
+    "eslint-config-egg": "^7.4.1",
+    "babel-preset-env": "^1.6.1",
+    "eslint-plugin-nuxt": "^0.4.3",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.3",
+    "prettier-eslint": "^9.0.0",
+    "prettier-eslint-cli": "^5.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
+  }
+}
